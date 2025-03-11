@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Image Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Business Image Generator</h1>
+      <p class="subtitle">Create professional, high-quality images for your business presentations, marketing materials, and more</p>
+    </header>
+
+    <main>
+      <div class="app-container">
+        <div class="options-panel">
+          <form id="imageForm">
+            <div class="form-group">
+              <label for="prompt">Describe what you want to create</label>
+              <textarea id="prompt" name="prompt" rows="3" placeholder="E.g., A team of professionals in a modern office setting discussing business strategy"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label>Image Type</label>
+              <div class="option-buttons">
+                <button type="button" class="option-btn active" data-value="photos" data-type="imageType">
+                  <span class="icon">📷</span>
+                  Photos
+                </button>
+                <button type="button" class="option-btn" data-value="illustrations" data-type="imageType">
+                  <span class="icon">🎨</span>
+                  Illustrations
+                </button>
+                <button type="button" class="option-btn" data-value="vectors" data-type="imageType">
+                  <span class="icon">✏️</span>
+                  Vectors
+                </button>
+                <button type="button" class="option-btn" data-value="icons" data-type="imageType">
+                  <span class="icon">🔍</span>
+                  Icons
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Style</label>
+              <div class="option-buttons">
+                <button type="button" class="option-btn active" data-value="minimalistic" data-type="style">
+                  <span class="icon">◽</span>
+                  Minimalistic
+                </button>
+                <button type="button" class="option-btn" data-value="realistic" data-type="style">
+                  <span class="icon">🌟</span>
+                  Realistic 3D
+                </button>
+                <button type="button" class="option-btn" data-value="clipart" data-type="style">
+                  <span class="icon">🎭</span>
+                  Clipart
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Purpose</label>
+              <div class="option-buttons">
+                <button type="button" class="option-btn active" data-value="presentations" data-type="purpose">
+                  <span class="icon">📊</span>
+                  Presentations
+                </button>
+                <button type="button" class="option-btn" data-value="flyers" data-type="purpose">
+                  <span class="icon">📃</span>
+                  Flyers
+                </button>
+                <button type="button" class="option-btn" data-value="brochures" data-type="purpose">
+                  <span class="icon">📑</span>
+                  Brochures
+                </button>
+                <button type="button" class="option-btn" data-value="social" data-type="purpose">
+                  <span class="icon">📱</span>
+                  Social Media
+                </button>
+                <button type="button" class="option-btn" data-value="website" data-type="purpose">
+                  <span class="icon">🖥️</span>
+                  Website
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Aspect Ratio</label>
+              <div class="option-buttons">
+                <button type="button" class="option-btn active" data-value="1:1" data-type="aspectRatio">
+                  <span class="icon">□</span>
+                  1:1
+                </button>
+                <button type="button" class="option-btn" data-value="4:3" data-type="aspectRatio">
+                  <span class="icon">▭</span>
+                  4:3
+                </button>
+                <button type="button" class="option-btn" data-value="16:9" data-type="aspectRatio">
+                  <span class="icon">▬</span>
+                  16:9
+                </button>
+                <button type="button" class="option-btn" data-value="3:2" data-type="aspectRatio">
+                  <span class="icon">▮</span>
+                  3:2
+                </button>
+              </div>
+            </div>
+            
+            <button type="submit" id="generateBtn" class="submit-btn">
+              <span class="btn-icon">✨</span>
+              Generate Image
+            </button>
+          </form>
+        </div>
+
+        <div class="results-panel">
+          <div id="loadingIndicator" class="loading-indicator hidden">
+            <div class="spinner"></div>
+            <p>Creating your business image...</p>
+          </div>
+          
+          <div id="imageResult" class="image-result hidden">
+            <div class="image-container">
+              <img id="generatedImage" src="" alt="Generated image">
+            </div>
+            <div class="image-info">
+              <h3>Generated Image</h3>
+              <p id="enhancedPrompt" class="enhanced-prompt"></p>
+              <div class="action-buttons">
+                <button id="downloadBtn" class="action-btn">
+                  <span class="btn-icon">⬇️</span>
+                  Download
+                </button>
+                <button id="copyPromptBtn" class="action-btn">
+                  <span class="btn-icon">📋</span>
+                  Copy Prompt
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="initialState" class="initial-state">
+            <div class="placeholder-icon">🖼️</div>
+            <p>Your generated image will appear here</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Powered by Together AI FLUX.1-schnell-Free model • <span id="currentYear"></span></p>
+    </footer>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "business-image-generator",
+  "version": "1.0.0",
+  "description": "Business-focused image generator using Together AI FLUX model",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "echo \"No build step required\""
+  },
+  "keywords": [
+    "business",
+    "image-generator",
+    "together-ai",
+    "flux"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "together-ai": "^0.13.0"
+  },
+  "engines": {
+    "node": ">=14.x"
+  }
+}
