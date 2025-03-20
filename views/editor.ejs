@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Editor - Business Image Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-paint-brush"></i> Image Editor</h1>
+      <p class="subtitle">Edit your business images using Gemini AI</p>
+    </header>
+
+    <main>
+      <div class="app-container">
+        <div class="chat-panel">
+          <div class="chat-container" id="chatContainer">
+            <div class="system-message">
+              <div class="message-content">
+                <p>Welcome to the Image Editor! I'm powered by Gemini AI. Describe how you'd like to edit your image, and I'll help you transform it.</p>
+              </div>
+            </div>
+            <!-- Chat messages will be added here dynamically -->
+          </div>
+          
+          <form id="chatForm" class="chat-input-form">
+            <textarea id="chatInput" placeholder="Describe how you want to edit the image..." rows="3"></textarea>
+            <button type="submit" id="sendBtn" class="submit-btn">
+              <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+              Send
+            </button>
+          </form>
+        </div>
+
+        <div class="results-panel">
+          <div id="loadingIndicator" class="loading-indicator hidden">
+            <div class="spinner"></div>
+            <p>Editing your image...</p>
+          </div>
+          
+          <div id="imageResult" class="image-result">
+            <div class="image-container">
+              <img id="editedImage" src="" alt="Image being edited">
+            </div>
+            <div class="image-info">
+              <h3><i class="fas fa-pencil-alt"></i> Image Editor</h3>
+              <div class="action-buttons">
+                <button id="downloadBtn" class="action-btn">
+                  <span class="btn-icon"><i class="fas fa-download"></i></span>
+                  Download
+                </button>
+                <button id="backBtn" class="action-btn secondary-btn">
+                  <span class="btn-icon"><i class="fas fa-arrow-left"></i></span>
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Powered by Google Gemini AI • <span id="currentYear"></span></p>
+      <div class="footer-links">
+        <a href="#" class="footer-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#" class="footer-link"><i class="fas fa-question-circle"></i> Help</a>
+        <a href="#" class="footer-link"><i class="fas fa-code"></i> API</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/editor.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
