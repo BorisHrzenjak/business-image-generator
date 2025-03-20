@@ -144,6 +144,38 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       };
       
+      // Add edit button to the action buttons
+      const actionButtons = document.querySelector('.action-buttons');
+      
+      // Remove existing edit button if any
+      const existingEditBtn = document.getElementById('editBtn');
+      if (existingEditBtn) {
+        existingEditBtn.remove();
+      }
+      
+      // Create and add the edit button
+      const editBtn = document.createElement('button');
+      editBtn.id = 'editBtn';
+      editBtn.className = 'action-btn';
+      editBtn.innerHTML = `
+        <span class="btn-icon"><i class="fas fa-edit"></i></span>
+        Edit Image
+      `;
+      
+      // Add click handler for edit button
+      editBtn.addEventListener('click', () => {
+        // Prepare image data for URL parameter
+        const imageToEdit = data.isUrl 
+          ? encodeURIComponent(data.imageData)
+          : encodeURIComponent(data.imageData);
+        
+        // Navigate to editor page with image data
+        window.location.href = `/editor?imageData=${imageToEdit}&isUrl=${data.isUrl}`;
+      });
+      
+      // Add the edit button to action buttons
+      actionButtons.appendChild(editBtn);
+      
     } catch (error) {
       console.error('Error:', error);
       showToast(`Error: ${error.message || 'Failed to generate image'}`);

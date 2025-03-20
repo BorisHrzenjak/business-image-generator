@@ -739,3 +739,239 @@ h1 .fas {
   margin-right: 8px;
   vertical-align: middle;
 }
+
+/* Chat Panel Styles for Editor Page */
+.chat-panel {
+  flex: 1;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.chat-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--accent-teal), var(--accent-blue), var(--accent-purple));
+}
+
+.chat-panel:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding-right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+.ai-message {
+  align-self: flex-start;
+}
+
+.system-message {
+  align-self: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.message-content {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-message .message-content {
+  background-color: var(--accent-blue);
+  color: white;
+  border-top-right-radius: 0.25rem;
+}
+
+.ai-message .message-content {
+  background-color: var(--deep-teal-blue);
+  color: white;
+  border-top-left-radius: 0.25rem;
+}
+
+.system-message .message-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-text);
+  text-align: center;
+  font-style: italic;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: var(--light-text);
+  margin-top: 0.25rem;
+  opacity: 0.7;
+}
+
+.user-message .message-time {
+  align-self: flex-end;
+}
+
+.ai-message .message-time {
+  align-self: flex-start;
+}
+
+.chat-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+#chatInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+#chatInput:focus {
+  outline: none;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 2px rgba(0, 204, 203, 0.2);
+}
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+}
+
+.secondary-btn:hover {
+  background-color: var(--primary-color);
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--deep-teal-blue);
+  border-radius: 1rem;
+  border-top-left-radius: 0.25rem;
+  width: fit-content;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 3px;
+  animation: typing 1.5s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+  margin-right: 0;
+}
+
+@keyframes typing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* Image editing specific styles */
+.edit-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.edit-control-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--deep-teal-blue);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edit-control-btn:hover {
+  background-color: var(--accent-teal);
+}
+
+.edit-control-btn i {
+  font-size: 0.8rem;
+}
+
+/* Responsive adjustments for the editor page */
+@media (max-width: 768px) {
+  .chat-panel {
+    height: 400px;
+  }
+  
+  .app-container {
+    flex-direction: column-reverse;
+  }
+  
+  .results-panel {
+    margin-bottom: 1.5rem;
+  }
+}
